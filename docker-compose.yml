@@ -3,9 +3,10 @@ version: '3.6'
 services:
   shadowsocks:
     image: shadowsocks/shadowsocks-libev
+    volumes:
+      - "./configs/ss.json:/etc/shadowsocks/config.json"
     ports:
-      - "12137:8388"
+      - "12137:12137"
     environment:
-      - METHOD=aes-256-gcm
-      - PASSWORD=password
+      - ARGS=-c /etc/shadowsocks/config.json
     restart: always
