@@ -2,11 +2,11 @@ version: '3.6'
 
 services:
   shadowsocks:
-    image: shadowsocks/shadowsocks-libev
+    image: dcatfly/shadowsocks-libev-config
     volumes:
       - "./configs/ss.json:/etc/shadowsocks/config.json"
     ports:
       - "12137:12137"
     environment:
-      - ARGS=-c /etc/shadowsocks/config.json
+      - CONFIG=/etc/shadowsocks/config.json
     restart: always
